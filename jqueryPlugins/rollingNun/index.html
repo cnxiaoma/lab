@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动的数字</title>
+	<script src="src/lib/jquery.js"></script>
+	<script type="text/javascript" src="src/js/rollingNun.js"></script>
+</head>
+<body>
+	<div id="test"></div>
+	<div id="tes2"></div>
+	<div id="test3"></div>
+	<div id="test4"></div>
+	<script>
+	var hehe = function(a,b){
+		return a+b;
+	}
+	$('#test').rollingNun({
+		num: '9854000025.22',
+		callback: showTotalNum,
+		unit: '元'
+	})
+
+
+
+	</script>
+</body>
+</html>
