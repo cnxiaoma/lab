@@ -1,0 +1,697 @@
+.stockTitle {
+  margin-bottom: 5px;
+  overflow: hidden;
+  zoom: 1;
+}
+.stockName {
+  font-size: 20px;
+  color: #0055a2;
+  font-weight: bold;
+  float: left;
+}
+.stockEnname {
+  font-size: 12px;
+  color: #a3a3a3;
+}
+.stockQuote {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.stockQuote strong {
+  font-size: 34px;
+  margin-right: 10px;
+}
+.stockDown {
+  color: #C10;
+}
+.stockUp {
+  color: #383;
+}
+.stockQuote table {
+  margin-top: 10px;
+  color: #676767;
+  width: 100%;
+  font-size: 13px;
+}
+.stockQuote table tr {
+  height: 23px;
+}
+.stockQuote table tr td span {
+  color: black;
+}
+.stockChart {
+  margin-bottom: 20px;
+  height: 388px;
+}
+.stockChart ul#changeChart li {
+  float: left;
+  margin-right: 5px;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+.stockChart ul li.active {
+  background-color: #4c5f87;
+  color: white;
+}
+.stockChart ul li.common {
+  background-color: #EEEEEE;
+}
+.stockIndustry,
+.alsoFollow {
+  margin: 10px 0px;
+  font-size: 13px;
+}
+.industryClose,
+.followClose {
+  border: 1px solid #f1f1f1;
+  padding: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  zoom: 1;
+}
+.industryClose:hover,
+.followClose:hover {
+  background-color: #f1f1f1;
+}
+.industryClose span.open,
+.alsoFollow .open {
+  float: right;
+  cursor: pointer;
+}
+.industryClose .stockItem,
+.alsoFollow .stockItem {
+  margin-left: 20px;
+}
+.stockItem span {
+  margin-left: 10px;
+}
+.stock-company,
+.stock-follows,
+.stock-recommend,
+.stock-analyst,
+.stock-status {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.stockNews .moreStatusNews {
+  border-bottom: 1px solid #f1f1f1;
+  text-align: center;
+  cursor: pointer;
+  padding: 5px;
+  color: #0055a2;
+}
+.stockNewsList,
+.stockHotComment {
+  overflow: hidden;
+}
+.stockHotComment {
+  display: none;
+}
+.stockHotComment .highlight {
+  color: black;
+  font-weight: normal;
+}
+.stockHotComment a .highlight {
+  color: #0055a2;
+}
+.stockHotComment h4 a .highlight {
+  color: #0055a2;
+  font-weight: bold;
+}
+.loadingMoreNews {
+  height: 30px;
+  display: none;
+  background: url(/images/ajax-loader.gif) 50% no-repeat;
+}
+#changeChart {
+  margin-left: 40px;
+}
+#removeFollow {
+  float: left;
+  cursor: pointer;
+  line-height: 22px;
+  font-size: 13px;
+}
+.stockFollowRelation {
+  float: left;
+  line-height: 22px;
+  display: inline;
+  margin-right: 10px;
+}
+.stockFollowRelation .icon_small {
+  float: left;
+}
+.stockTrade,
+.groupStock,
+.stockPerformance,
+.alertStock {
+  line-height: 22px;
+  margin-right: 10px;
+  font-size: 13px;
+  float: left;
+}
+.tooltip-inner .groupStock {
+  float: none;
+  font-size: 12px;
+  margin-left: 0;
+}
+.industryOpen,
+.followOpen {
+  border: 1px solid #f1f1f1;
+  padding-bottom: 5px;
+  overflow: hidden;
+  zoom: 1;
+}
+.industryOpen table,
+.followOpen table {
+  width: 100%;
+  text-align: left;
+  margin: 10px 0px 10px 10px;
+}
+.industryOpen table tr,
+.followOpen table tr {
+  height: 25px;
+}
+.industryOpen table th,
+.followOpen table th {
+  height: 30px;
+  color: #0055a2;
+  text-align: left;
+}
+.industryOpen .close,
+.followOpen .close {
+  float: right;
+  margin-right: 5px;
+  color: black;
+}
+.otherStocksTitle,
+.followTitle {
+  height: 14px;
+  background: #f7f7f7;
+  padding: 6px;
+  overflow: hidden;
+  zoom: 1;
+}
+.otherStocksTitle strong,
+.followTitle strong {
+  float: left;
+}
+.stockNewsList .userInfo {
+  display: none;
+}
+.floatLeft {
+  float: left;
+}
+.stockInfo {
+  float: right;
+}
+.stockInfo span {
+  display: inline-block;
+  font-size: 13px;
+  color: #666;
+}
+#timeInfo,
+.update-quote {
+  display: inline-block;
+  margin-top: 10px;
+}
+#timeInfo {
+  line-height: 20px;
+  margin-top: 15px;
+}
+.currentQuote {
+  overflow: hidden;
+  zoom: 1;
+}
+.currentInfo {
+  float: left;
+  height: 40px;
+}
+.currentInfo div {
+  margin-top: 3px;
+}
+.afterHours {
+  clear: both;
+  font-size: 13px;
+  padding-top: 2px;
+}
+.afterHoursTip {
+  color: #676767;
+}
+#addStockStatus {
+  float: right;
+  margin-right: 10px;
+  font-size: 13px;
+  line-height: 22px;
+}
+#stockStatusArea {
+  width: 490px;
+  height: 100px;
+}
+.currentInfo span {
+  font-size: 16px;
+  display: inline-block;
+}
+.currentInfo p {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.enName {
+  white-space: nowrap;
+  color: black;
+}
+#chartLoading {
+  width: 570px;
+  height: 306px;
+  background: url(/images/ajax-loader.gif) 50% no-repeat;
+  display: none;
+}
+.seperate {
+  margin: 0px 5px;
+}
+.stockNews .unActive {
+  color: #004D90;
+  cursor: pointer;
+}
+.statusCatagory {
+  margin: 10px 0px 10px 0px;
+  padding-left: 8px;
+  float: left;
+  display: none;
+}
+.statusCatagory a {
+  color: #0055a2;
+  margin-left: 15px;
+  font-size: 12px;
+}
+.statusCatagory a.active {
+  color: #000;
+  cursor: default;
+}
+.itisme {
+  float: right;
+  color: black;
+}
+.statusOptions {
+  overflow: hidden;
+  zoom: 1;
+}
+.statusSearch {
+  float: right;
+  margin-top: 3px;
+}
+.statusSearch input {
+  width: 150px;
+  height: 22px;
+  font-size: 13px;
+  line-height: 22px;
+  padding: 0 4px;
+}
+.returnBack {
+  margin-top: 7px;
+  float: right;
+  display: none;
+  font-size: 12px;
+}
+.returnBack s {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  margin-right: 2px;
+  margin-bottom: -2px;
+  background: url(/images/icon_12px.png) no-repeat -12px -85px;
+}
+.searchResultTip {
+  margin-bottom: 10px;
+}
+#searchResult .searchResultTip a {
+  margin-left: 0px;
+  font-size: 14px;
+}
+.topName {
+  height: 22px;
+}
+.stockOp {
+  float: right;
+  display: none;
+}
+#statusList li {
+  position: relative;
+  background-color: #fff;
+}
+#statusList li .remove_status {
+  position: absolute;
+  display: block;
+  visibility: hidden;
+  width: 10px;
+  height: 14px;
+  right: 6px;
+  top: 10px;
+  background: url(/images/icons.png?v=20120515) no-repeat -223px -195px;
+  cursor: pointer;
+}
+#statusList li:hover .remove_status {
+  visibility: visible;
+}
+.stockTrade {
+  float: left;
+}
+.ui-dialog.ui-widget-content a {
+  color: #0055a2;
+}
+#statusList.simplify li .headpic,
+#statusList.simplify li .userTitle {
+  display: none;
+}
+#statusList.simplify .commentList li .headpic {
+  display: block;
+}
+#statusList.simplify li .content {
+  margin-left: 0;
+}
+#statusList.simplify .commentList li .content {
+  margin-left: 40px;
+}
+.stockTrade {
+  float: right;
+}
+.quote-percentage {
+  float: right;
+  padding-right: 10px;
+}
+.stockQuote .up,
+.oppositeColor .stockQuote .down {
+  background: #eeffee;
+}
+.stockQuote .down,
+.oppositeColor .stockQuote .up {
+  background: #ffeeee;
+}
+.stockChart-kline {
+  display: none;
+  height: 453px;
+  position: relative;
+}
+.currentStockPrice {
+  display: none;
+  position: absolute;
+  padding: 3px 3px;
+  background: #f1f1f1;
+  text-align: center;
+}
+.currentStockInfo {
+  display: none;
+  font-size: 12px;
+  position: absolute;
+  width: 115px;
+  height: 154px;
+  background: #ffffff;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #eee;
+  z-index: 3;
+}
+.currentStockInfo table tr td {
+  padding: 2px 4px;
+}
+.currentStockInfo table tr td.currentStockInfo-td {
+  text-align: right;
+  width: 60px;
+}
+.currentStockInfo .currentStock-time {
+  text-align: center;
+  margin: 5px 0px;
+}
+.editor-mode-stock .currentStockInfo {
+  width: 150px;
+  height: 200px;
+}
+.editor-mode-stock .currentStockInfo table tr td {
+  padding: 5px 8px;
+}
+.editor-mode-stock .currentStockInfo table tr td.currentStockInfo-td {
+  text-align: right;
+  width: 80px;
+}
+#showStatus,
+#onlyQuotation {
+  display: none;
+}
+.currentInfo .mfDescription {
+  font-size: 14px;
+}
+.data-value {
+  text-align: left;
+}
+.data-title {
+  text-align: left;
+}
+.stockQuote table tr td.data-value span {
+  color: #05a;
+}
+.stockQuote td {
+  line-height: 26px;
+}
+.donate-count {
+  padding: 0;
+}
+.broker-list {
+  font-size: 12px;
+}
+#group-operation li a {
+  padding: 10px;
+}
+.stock-closed {
+  float: left;
+  color: #fff;
+  font-size: 18px;
+  background: #aaa;
+  line-height: 18px;
+  padding: 4px 7px;
+  margin-top: 6px;
+}
+.stock-closed.quit {
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+.block-tip {
+  color: #999;
+}
+.stockType {
+  display: inline-block;
+  background: #ff9000;
+  color: #fff;
+  line-height: 20px;
+  width: 50px;
+  text-align: center;
+  border-radius: 2px;
+  margin-left: 5px;
+}
+body.right .main {
+  border: none;
+}
+.rank-type {
+  overflow: hidden;
+  zoom: 1;
+  margin-top: 15px;
+}
+.rank-type .rank-container {
+  float: left;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 20px;
+}
+.rank-type .rank-container span {
+  display: inline-block;
+  padding: 3px 5px;
+}
+.rank-type .rank-container .rank-name {
+  background: #fdc238;
+  color: #fff;
+}
+.rank-type .rank-container .rank-value {
+  padding: 3px 8px;
+}
+.rank-type .types-container {
+  float: left;
+}
+.rank-type .types-container span {
+  display: inline-block;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  padding: 3px 5px;
+  margin-right: 10px;
+}
+.rank-type .types-container span.type-name {
+  background: #27adec;
+  color: #fff;
+}
+.fundChart {
+  height: 396px;
+  position: relative;
+}
+.fundChart .loading {
+  width: 568px;
+  height: 396px;
+  position: absolute;
+  background: url(/images/ajax-loader.gif) 50% no-repeat;
+}
+.update-quote {
+  border: 1px solid #05a;
+  padding: 4px 7px;
+  border-radius: 3px;
+  width: 65px;
+  color: #05a;
+  font-size: 12px;
+  cursor: pointer;
+  vertical-align: text-bottom;
+}
+.update-quote img {
+  width: 14px;
+  height: 14px;
+  margin-right: 3px;
+  display: inline-block;
+}
+.update-quote .img-normal {
+  display: inline-block;
+}
+.update-quote .img-hover {
+  display: none;
+}
+.update-quote:hover {
+  color: #fff;
+  background: #05a;
+}
+.update-quote:hover .img-hover {
+  display: inline-block;
+}
+.update-quote:hover .img-normal {
+  display: none;
+}
+.rest-day {
+  clear: both;
+  color: #aaa;
+  padding-top: 5px;
+}
+.pankou {
+  position: absolute;
+  margin-top: -382px;
+  float: right;
+  margin-left: 403px;
+  width: 162px;
+  border: 1px solid #ccc;
+  padding-top: 5px;
+  height: 329px;
+}
+.pankou .table {
+  width: 100%;
+  height: 316px;
+}
+.pankou .table .tr {
+  height: 25px;
+  line-height: 25px;
+  text-align: left;
+  padding-left: 10px;
+  font-weight: normal;
+}
+.pankou .table .tr.buy {
+  width: 50%;
+}
+.pankou .table .tr .left,
+.pankou .table .td .left {
+  display: inline-block;
+}
+.pankou .table .tr .left span,
+.pankou .table .td .left span {
+  margin-left: 15px;
+}
+.pankou .table .tr .left span.title,
+.pankou .table .td .left span.title {
+  display: inline-block;
+  float: left;
+  width: 30px;
+  margin-left: 0;
+}
+.pankou .table .tr .left span.price,
+.pankou .table .td .left span.price {
+  display: inline-block;
+  width: 35px;
+  text-align: center;
+}
+.pankou .table .tr .right,
+.pankou .table .td .right {
+  display: inline-block;
+  float: right;
+  width: 70px;
+  text-align: center;
+}
+.pankou .table .tbody {
+  width: 100%;
+  height: 27px;
+  line-height: 27px;
+  background-color: #f0f0f0;
+  margin: 7px 0;
+}
+.pankou .table .tbody .tr {
+  padding-left: 0;
+  text-align: center;
+}
+.pankou .table .tbody .tr .current_text {
+  float: left;
+  margin-left: 10px;
+}
+.pankou .table .tbody .tr .current_value {
+  float: right;
+  margin-right: 15px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.pankou .table .tbody .td {
+  float: left;
+  width: 50%;
+}
+.pankou .table .tbody .td.right {
+  padding-right: 0;
+  float: right;
+}
+.pankou .table .tbody.percent {
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  background-color: white;
+  border-top: solid lightgray 1px;
+  height: 31px;
+}
+.pankou .table .tbody.percent .tr {
+  font-size: 12px;
+  height: 31px;
+  line-height: 31px;
+  text-align: center;
+}
+.pankou .table .tbody.current .tr {
+  height: 27px;
+  line-height: 27px;
+}
+.pankou .table .td.stress-ratio {
+  height: 16px;
+}
+.pankou .table .td.stress-ratio div {
+  display: block;
+  height: 16px;
+  line-height: 16px;
+}
+.pankou .table .td.stress-ratio .pankou-buy {
+  float: left;
+  background: #2f84cc;
+  color: #fff;
+}
+.pankou .table .td.stress-ratio .pankou-buy span {
+  padding-left: 15px;
+}
+.pankou .table .td.stress-ratio .pankou-all {
+  float: left;
+  background: #d5e6f5;
+  text-align: right;
+}
+.pankou .table .td.stress-ratio .pankou-all span {
+  padding-right: 15px;
+}

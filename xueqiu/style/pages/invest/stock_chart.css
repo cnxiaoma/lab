@@ -1,0 +1,440 @@
+.style-for-ie .chart-config {
+  border-bottom: 1px solid #ccc;
+}
+.stockChart {
+  position: relative;
+}
+.stockChart #overlay-chart,
+.stockChart #overlay-dragbar,
+.stockChart #overlay-event,
+.stockChart #overlay-loading,
+.stockChart #overlay-status,
+.stockChart #overlay-klineIndex {
+  display: none;
+  top: 26px;
+  left: 0px;
+  position: absolute;
+}
+.stockChart #newChart {
+  margin-top: 0px;
+  display: block;
+}
+.stockChart #overlay-loading {
+  height: 20px;
+  background: url(../../../images/loading_027.gif) 98% no-repeat;
+  top: 27px;
+  right: 0;
+}
+.stockChart .stock-compare,
+.stockChart .status-filter {
+  position: absolute;
+  z-index: 100;
+  background: #fff;
+  border: 1px solid #ccc;
+  top: 26px;
+  padding: 0px 10px 10px 10px;
+  display: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+.stockChart .stock-compare .arrow,
+.stockChart .status-filter .arrow {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -13px;
+  left: 18px;
+  border-color: transparent transparent #818181;
+  border-style: solid;
+  border-width: 6px;
+}
+.stockChart .stock-compare .arrow-in,
+.stockChart .status-filter .arrow-in {
+  top: -12px;
+  border-color: transparent transparent white ;
+}
+.stockChart .stock-compare label,
+.stockChart .status-filter label {
+  display: block;
+  margin: 10px 0px 15px 0px;
+}
+.stockChart .stock-compare label input,
+.stockChart .status-filter label input {
+  margin-right: 3px;
+}
+.stockChart .stock-compare .search-stock,
+.stockChart .status-filter .search-stock,
+.stockChart .stock-compare .search-user,
+.stockChart .status-filter .search-user {
+  margin-bottom: 10px;
+}
+.stockChart .stock-compare .search-stock .search-stock-input,
+.stockChart .status-filter .search-stock .search-stock-input,
+.stockChart .stock-compare .search-user .search-stock-input,
+.stockChart .status-filter .search-user .search-stock-input,
+.stockChart .stock-compare .search-stock .serch-user-input,
+.stockChart .status-filter .search-stock .serch-user-input,
+.stockChart .stock-compare .search-user .serch-user-input,
+.stockChart .status-filter .search-user .serch-user-input {
+  padding: 3px 0 3px 3px;
+  border: 1px solid #D0D0D0;
+}
+.stockChart .stock-compare .search-stock .search-user-input,
+.stockChart .status-filter .search-stock .search-user-input,
+.stockChart .stock-compare .search-user .search-user-input,
+.stockChart .status-filter .search-user .search-user-input {
+  margin-left: 5px;
+}
+.stockChart .stock-compare .close-compare,
+.stockChart .status-filter .close-compare,
+.stockChart .stock-compare .close-filter,
+.stockChart .status-filter .close-filter {
+  float: right;
+}
+.stockChart .stock-compare .dropdown-menu,
+.stockChart .status-filter .dropdown-menu {
+  width: 120px;
+  top: 144px;
+  left: 27px;
+}
+.stockChart .stock-compare .dropdown-menu h3,
+.stockChart .status-filter .dropdown-menu h3 {
+  padding-left: 5px;
+}
+.stockChart .stock-compare .dropdown-menu a.active,
+.stockChart .status-filter .dropdown-menu a.active {
+  color: white;
+  text-decoration: none;
+  background-color: #0055A2;
+}
+.stockChart .chart-config .type-list {
+  float: left;
+}
+.stockChart .chart-config .type-list > li {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  padding: 0px 10px;
+  border: 1px solid #dedede;
+  border-bottom: none;
+  margin-right: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 12px;
+  line-height: 25px;
+  text-align: center;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+.stockChart .chart-config .type-list li.select {
+  color: #fff;
+  background: #06c;
+}
+.stockChart .chart-config .chart-operate {
+  float: right;
+  font-size: 12px;
+  margin-top: 3px;
+}
+.stockChart .chart-config .chart-operate li {
+  display: inline-block;
+  line-height: 20px;
+  margin-left: 10px;
+}
+.stockChart .chart-config .chart-operate li.disabled a {
+  color: #ccc;
+  cursor: default;
+}
+.stockChart .chart-config .chart-operate .kline-config {
+  display: none;
+}
+.stockChart .fuquan {
+  position: absolute;
+  right: -1px;
+  top: 24px;
+  overflow: hidden;
+  zoom: 1;
+  z-index: 1;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  width: 50px;
+  border-top: none;
+  display: none;
+  color: black;
+  padding-top: 5px;
+}
+.stockChart .fuquan li {
+  font-size: 12px;
+  line-height: 20px;
+  height: 20px;
+  margin-bottom: 5px;
+  padding: 0px 3px;
+  cursor: pointer;
+  color: black;
+}
+.stockChart .fuquan li.select {
+  background: #f0f0f0;
+}
+.stockChart .period-wrapper,
+.stockChart .nw-period-wrapper {
+  text-align: center;
+  width: 568px;
+}
+.stockChart .nw-period-wrapper {
+  display: none;
+}
+.stockChart ul.period {
+  font-size: 12px;
+}
+.stockChart ul.period li {
+  display: inline-block;
+  padding: 5px 8px;
+  margin-right: 0px;
+  cursor: pointer;
+  width: 26px;
+  text-align: center;
+}
+.stockChart ul.period li.select {
+  background: #ccc;
+}
+.stockChart .toolbar {
+  overflow: hidden;
+  zoom: 1;
+  margin: 10px 0px;
+  font-size: 12px;
+}
+.stockChart .toolbar .compare-stock {
+  float: left;
+}
+.stockChart .toolbar .stock-tool {
+  float: right;
+}
+.stockChart .toolbar .stock-tool span {
+  display: inline-block;
+  margin-left: 10px;
+  color: #05c;
+}
+.stockChart .compare-stock .compare-input {
+  float: left;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+.stockChart .compare-stock .compare-stocks {
+  display: inline-block;
+  float: left;
+}
+.stockChart .compare-stock .compare-stocks li {
+  display: inline-block;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  line-height: 18px;
+  padding: 0px 3px;
+  background: #f0f0f0;
+}
+.stockChart .compare-stock .compare-stocks li .remove-compare {
+  display: inline-block;
+  margin-right: 3px;
+  cursor: pointer;
+}
+.stockChart div.status-container {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  font-size: 9pt;
+  display: block;
+  width: 300px;
+  height: 80px;
+  background-color: transparent;
+  *border: 1px solid #ccc;
+  z-index: 10000000;
+}
+.stockChart div.status-container s {
+  position: absolute;
+  top: -20px;
+  *top: -22px;
+  left: 140px;
+  display: block;
+  height: 0;
+  width: 0;
+  font-size: 0;
+  line-height: 0;
+  border-color: transparent transparent #ccc transparent;
+  border-style: dashed dashed solid dashed;
+  border-width: 10px;
+}
+.stockChart div.status-container i {
+  position: absolute;
+  top: -19px;
+  *top: -9px;
+  left: 140px;
+  display: block;
+  height: 0;
+  width: 0;
+  font-size: 0;
+  line-height: 0;
+  border-color: transparent transparent #fff transparent;
+  border-style: dashed dashed solid dashed;
+  border-width: 10px;
+}
+.stockChart div.status-container .content {
+  border: 1px solid #ccc;
+  line-height: 20px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  *top: -2px;
+  *border-top: 1px solid #ccc;
+  *border-top: 1px solid #666;
+  *border-left: none;
+  *border-right: none;
+  *height: 102px;
+  box-shadow: 3px 3px 4px #999;
+  -moz-box-shadow: 3px 3px 4px #999;
+  -webkit-box-shadow: 3px 3px 4px #999;
+  /* For IE 5.5 - 7 */
+
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999');
+  /* For IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')";
+}
+.stockChart .left {
+  top: 71px;
+  left: 0px;
+}
+.stockChart .right {
+  top: 71px;
+  right: 0px;
+}
+.fundChart {
+  text-align: center;
+  position: relative;
+}
+.fundChart ul.chart-period {
+  font-size: 12px;
+}
+.fundChart ul.chart-period li {
+  display: inline-block;
+  padding: 5px 8px;
+  margin-right: 5px;
+  cursor: pointer;
+  width: 40px;
+  text-align: center;
+}
+.fundChart ul.chart-period li.select {
+  color: #fff;
+  background: #06c;
+}
+.fundChart ul.chart-type {
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+}
+.fundChart ul.chart-type li {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  padding: 0px 10px;
+  border: 1px solid #dedede;
+  border-bottom: none;
+  margin-right: 3px;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+.fundChart ul.chart-type li.select {
+  color: #fff;
+  background: #06c;
+}
+body .dialog-klineConfig label {
+  vertical-align: bottom;
+}
+body .dialog-klineConfig label input {
+  margin-right: 3px;
+}
+.fundChart {
+  text-align: center;
+  position: relative;
+}
+.fundChart ul.chart-period {
+  font-size: 12px;
+}
+.fundChart ul.chart-period li {
+  display: inline-block;
+  padding: 5px 8px;
+  margin-right: 5px;
+  cursor: pointer;
+  width: 40px;
+  text-align: center;
+}
+.fundChart ul.chart-period li.select {
+  color: #fff;
+  background: #06c;
+}
+.fundChart ul.chart-type {
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+}
+.fundChart ul.chart-type li {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  padding: 0px 10px;
+  border: 1px solid #dedede;
+  border-bottom: none;
+  margin-right: 3px;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+.fundChart ul.chart-type li.select {
+  color: #fff;
+  background: #06c;
+}
+body .dialog-klineConfig label {
+  vertical-align: bottom;
+}
+body .dialog-klineConfig label input {
+  margin-right: 3px;
+}
+.editor-mode-stock .fs {
+  margin-top: 20px;
+  display: block;
+}
+.editor-mode-stock .fs #overlay-chart-fs,
+.editor-mode-stock .fs #overlay-dragbar-fs,
+.editor-mode-stock .fs #overlay-event-fs,
+.editor-mode-stock .fs #overlay-loading-fs,
+.editor-mode-stock .fs #overlay-status-fs,
+.editor-mode-stock .fs #overlay-klineIndex-fs {
+  display: none;
+  top: 26px;
+  left: 0px;
+  position: absolute;
+}
+.editor-mode-stock .fs #overlay-loading-fs {
+  height: 20px;
+  background: url(../../../images/loading_027.gif) 98% no-repeat;
+  top: 5px;
+  right: -20px;
+}
+.editor-mode-stock .fs #overlay-status-fs {
+  height: 30px;
+}
+.editor-mode-stock .fs .period-wrapper {
+  width: 100%;
+}
+.editor-mode-stock .fs .period-wrapper ul.period li {
+  width: 60px;
+  padding: 8px 8px;
+}

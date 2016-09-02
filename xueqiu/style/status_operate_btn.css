@@ -1,0 +1,66 @@
+.btn-operation {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: 16px;
+  width: 12px;
+  float: right;
+}
+.btn-operation .btn-sub-menu {
+  font-size: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url("/images/arrow-normal.png") no-repeat 0 0;
+  border: 0 none;
+  padding: 0;
+  margin-top: -5px;
+}
+.btn-operation .btn-sub-menu:hover {
+  background: url("/images/arrow-hover.png") no-repeat 0 0;
+}
+.btn-operation .hover {
+  background: url("/images/arrow-hover.png") no-repeat 0 0;
+}
+.btn-operation .set-sub-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 15px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 10;
+  padding: 1px;
+  text-align: left;
+  font-size: 12px;
+}
+.btn-operation .set-sub-menu li {
+  list-style: none;
+  width: 60px;
+  border: 0 none;
+  padding: 0;
+  border-bottom: 1px dotted #dedede;
+}
+.btn-operation .set-sub-menu li a {
+  display: block;
+  padding: 5px;
+}
+.btn-operation .set-sub-menu li a:hover {
+  background-color: #0055a2;
+  color: #fff;
+}
+.meta .infos .status-marker {
+  color: #A23E38;
+  border: 1px solid #A23E38;
+  padding: 0 3px;
+  border-radius: 2px;
+  margin-right: 5px;
+}
+.meta .infos .status-promo {
+  color: #ccc;
+  border: 1px solid #ccc;
+}
+.meta .infos .status-hot {
+  color: #f90;
+  border: 1px solid #f90;
+}
