@@ -1,0 +1,24 @@
+﻿@charset "utf-8";
+/*reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,lable{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500;}
+select,textarea{font-size:100%;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+img{vertical-align:top;}
+abbr,acronym{border:0;font-variant:normal;}
+del{text-decoration:line-through;}
+address,caption,cite,code,dfn,em,b,i,th,var {font-weight:normal; font-style:normal;} 
+ol,ul{list-style:none;}
+caption,th{text-align:left;}
+ins{text-decoration:none;}
+input, button, select, textarea {outline:none;}
+input{border:1px solid #dedede;vertical-align:middle;font-family: "Microsoft YaHei","Helvetica Neue", Helvetica Neue, Helvetica, Hiragino Sans GB,tahoma,arial,sans-serif;}
+input:-webkit-autofill {-webkit-box-shadow: 0 0 0px 1000px white inset;}
+textarea {resize:none;}
+a{color:#333;text-decoration:none;outline: none;}
+a:hover{color: #1194d3;}
+body {color:#333;font:12px/1.5 "Microsoft YaHei","Helvetica Neue", Helvetica Neue, Helvetica, Hiragino Sans GB,tahoma,arial,sans-serif}
+
+
+

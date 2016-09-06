@@ -1,0 +1,15 @@
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
+  module.exports = function (){
+    return new helpers();
+  };
+} else {
+  window.SNB = window.SNB || {};
+  SNB.helpers = new helpers();
+}
+
+
+<!--[if lt IE 8]>
+<div class="ie6">
+	你正在使用的浏览器版本过低（IE7或IE7以下，包括套用了IE内核的360浏览器、搜狗浏览器等）。<br/>如果不能正常浏览本站或某些功能无法使用，请到微软官网下载升级 <a href="http://windows.microsoft.com/zh-CN/internet-explorer/downloads/ie">Internet Explorer</a> 或使用 <a href="http://www.google.com/chrome/">谷歌 Google Chrome</a> 浏览器。
+</div>
+<![endif]-->

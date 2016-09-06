@@ -134,14 +134,14 @@ define('pages/invest/chart/TSNB.chart.base.js', [], function (require, exports, 
      *  options 属性:
      *  symbol 画图的symbol
      *  wrapper 最外层的div .class 形式
-     *  width svg宽 
-     *  height svg高 
+     *  width svg宽
+     *  height svg高
      *  container 初始化svg的div  id 形式
      *  overlay 鼠标滑动时候的画图层 比如十字线等
      *  eventOverlay 事件层 监听处理各种鼠标事件 拖动 滑动等
      *  dragbarOverlay 下方的缩略图 和 dragbar
      *  klineIndexOverlay 技术指标层
-     *  loadingOverlay loading 图标层 
+     *  loadingOverlay loading 图标层
      *  statusOverlay 显示讨论点层
      */
 
@@ -186,7 +186,7 @@ define('pages/invest/chart/TSNB.chart.base.js', [], function (require, exports, 
         bottomHeight: 50,
 
         // 技术指标切换tab高
-        //indexButtonHeight: 15, 
+        //indexButtonHeight: 15,
         indexButtonHeight: 0,
 
         // 技术指标高
@@ -1093,7 +1093,7 @@ define('pages/invest/chart/TSNB.chart.base.js', [], function (require, exports, 
         .rect(x, y, chart.width - 1, chart.currentHeight + chart.stateHeight)
         .attr(this.theme.currentRect);
 
-      // draw state line  
+      // draw state line
       var array = [
         "M",
         fixCoord(this.labelWidth),
@@ -1107,13 +1107,13 @@ define('pages/invest/chart/TSNB.chart.base.js', [], function (require, exports, 
         .path(array)
         .attr(this.theme.splitLine);
 
-      // draw volume rect   
+      // draw volume rect
       var volumeY = fixCoord(chart.stateHeight + chart.currentHeight + chart.timeHeight);
       this.paper
         .rect(fixCoord(this.labelWidth), volumeY, chart.width - 1, chart.volumeHeight)
         .attr(this.theme.currentRect);
 
-      // 水印  
+      // 水印
       var logoStr = "© XUEQIU.COM";
       this.paper
         .text(this.labelWidth + 5, chart.cy - 7, logoStr)
@@ -1413,7 +1413,7 @@ define('pages/invest/chart/TSNB.chart.base.js', [], function (require, exports, 
  */
 
 define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, exports, module) {  function fixCoord(coord) {
-    return Math.floor(coord) + 0.5;   
+    return Math.floor(coord) + 0.5;
   }
 
   var obj = {
@@ -1437,9 +1437,9 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
         SNB.get(url, params, function(ret) {
           that.wrapDataForCompare(ret, symbol, period);
           cb();
-        });  
+        });
       }
-    }, 
+    },
 
     wrapDataForCompare: function(data, symbol, period) {
       period = this.fixPeriod(period);
@@ -1478,7 +1478,7 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
       }
 
       for (; i < max; i++) {
-        var d; 
+        var d;
 
         // 两个数组对比  如果新的大于老得  截取 小于的话  就在前面补上undefined
         // 如果diff大于0 就说明新数组长度大于老数组
@@ -1517,7 +1517,7 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
 
       if (_.isUndefined(this.compareData[symbol])) {
         this.compareData[symbol] = {};
-      } 
+      }
       this.compareData[symbol][period] = {
         current: current,
         ts: ts
@@ -1528,7 +1528,7 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
     compareStock: function (symbol) {
       var period = this.fixPeriod(this.period),
         that = this;
-      
+
       this.statusPaper.clear();
       this.wrapper.find(".show-status").addClass("disabled");
 
@@ -1552,7 +1552,7 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
               that.drawCompareStock();
             }
           });
-        });  
+        });
       }
     },
 
@@ -1568,7 +1568,7 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
         period = this.fixPeriod(this.period);
 
       _.each(symbols, function(symbol) {
-        var current = that.compareData[symbol][period].current, 
+        var current = that.compareData[symbol][period].current,
           showCurrent = current.slice(that.begin, that.end),
           percentArray = [],
           firstCurrent = _.first(showCurrent);
@@ -1586,9 +1586,9 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
             if (_.isUndefined(firstCurrent)) {
               firstCurrent = c;
             }
-            percentArray[i] = (c - firstCurrent) / firstCurrent; 
-          }  
-        });  
+            percentArray[i] = (c - firstCurrent) / firstCurrent;
+          }
+        });
 
         percentObj[symbol] = percentArray;
         percentsArray = percentsArray.concat(percentArray);
@@ -1601,7 +1601,7 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
         ts = this.current.ts.slice(this.begin, this.end);
 
       current = _.filter(current, function(a) {
-        return a > 0; 
+        return a > 0;
       });
 
       this.showCurrent = {
@@ -1637,8 +1637,8 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
             var ycurrent = cy - (p - cymin) * cscale,
               yvol = vy - vol[i] * vscale,
               x = that.labelWidth + i * perWidth;
-            
-            pathArray.push(fixCoord(x), fixCoord(ycurrent));  
+
+            pathArray.push(fixCoord(x), fixCoord(ycurrent));
 
             if (symbol === that.symbol) {
               var time = SNB.chartUtil.formatTime(ts[i], "yyyy-MM-dd");
@@ -1646,9 +1646,9 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
               that.paper.path([
                 "M",
                 fixCoord(x),
-                fixCoord(yvol), 
+                fixCoord(yvol),
                 "L",
-                fixCoord(x), 
+                fixCoord(x),
                 fixCoord(vy)
               ]).attr(that.theme.volumePath);
 
@@ -1660,7 +1660,7 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
                  */
 
                 if (i % timeCount === 0 && that.period !== "1d") {
-                  that.drawSplitTime(x, time)  
+                  that.drawSplitTime(x, time)
                 }
               }
             }
@@ -1669,13 +1669,13 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
               pathArray.push("L");
             }
           }
-        });  
+        });
 
         var color = that.theme.compareColors[index];
 
         that.paper.path(pathArray).attr({
           "stroke-width": "1.5px",
-          "stroke": color 
+          "stroke": color
         });
         if (_.isUndefined(that.compareColors)) {
           that.compareColors = {};
@@ -1693,7 +1693,7 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
 
     // 鼠标事件
     showCompareCurrentInfo: function (index) {
-      this.opaper.clear();  
+      this.opaper.clear();
 
       var that = this,
         chart = this.chart,
@@ -1707,11 +1707,11 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
         ts = this.showCurrent.ts[index],
         x = this.labelWidth + index * chart.perWidth,
         isUSTime = this.is$,
-        tsformat; 
+        tsformat;
 
       if (!ts) {
         return false;
-      }  
+      }
 
       if (this.period === "1d" || this.period === "5d") {
         tsformat = "hh:mm";
@@ -1719,7 +1719,7 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
         tsformat = "MM-dd";
       } else {
         tsformat = "yyyy-MM-dd";
-      } 
+      }
 
       var percentObj = this.showPercentObj;
 
@@ -1769,7 +1769,7 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
           "storke": "none",
           "stroke-width": "0px",
           "fill": color
-        });   
+        });
         startX += 7;
 
         var text = that.opaper.text(startX, y, name).attr({
@@ -1789,9 +1789,9 @@ define('pages/invest/chart/TSNB.chart.compare.js', [], function (require, export
           });
 
           startX += percentTxt.getBBox().width;
-        }  
+        }
         startX += 12;
-      });  
+      });
     }
   };
 
@@ -2132,7 +2132,7 @@ define('pages/invest/chart/TSNB.chart.event.js', [], function (require, exports,
             zoom(568);
           }
 
-          // 变换各个层的位置 
+          // 变换各个层的位置
           that.changeHtmlByPeriod(period);
 
           that.period = period;
@@ -2154,9 +2154,9 @@ define('pages/invest/chart/TSNB.chart.event.js', [], function (require, exports,
             rx = x1 + width - 5;
             bindex = 0;
             eindex = 5;
-          } 
+          }
           that.dragRect.attr({
-            x: x1, 
+            x: x1,
             width: width
           });
           that.dragLeft.attr({
@@ -2169,10 +2169,10 @@ define('pages/invest/chart/TSNB.chart.event.js', [], function (require, exports,
           that.drawChartByDragBar(bindex, eindex);
         } else if (period === "1m" || period === "6m") {
           zoom(568);
-          // 变换各个层的位置 
+          // 变换各个层的位置
           that.changeHtmlByPeriod(period);
 
-          that.period = period; 
+          that.period = period;
           that.ctype = "day";
 
           that.getData("6m", function() {
@@ -2199,7 +2199,7 @@ define('pages/invest/chart/TSNB.chart.event.js', [], function (require, exports,
           that.drawThumbnail();
         } else if (period === "1y" || period === "3y" || period === "all") {
           zoom(568);
-          // 变换各个层的位置 
+          // 变换各个层的位置
           that.changeHtmlByPeriod(period);
 
           that.ctype = "day";
@@ -2253,9 +2253,9 @@ define('pages/invest/chart/TSNB.chart.event.js', [], function (require, exports,
           zoom(568);
           that.ctype = "kline";
           that.period = period;
-          
+
           that.getData(period, function() {
-            // 变换各个层的位置 
+            // 变换各个层的位置
             that.changeHtmlByPeriod(period);
 
             that.current = that.data[that.period][that.ktype];
@@ -2269,7 +2269,7 @@ define('pages/invest/chart/TSNB.chart.event.js', [], function (require, exports,
             if (that.begin < 0) {
               that.begin = 0;
               that.howmany = count;
-              that.end = that.begin + that.howmany; 
+              that.end = that.begin + that.howmany;
             } else if (that.end > count) {
               that.end = count;
               that.begin = that.end - that.howmany;
@@ -2295,7 +2295,7 @@ define('pages/invest/chart/TSNB.chart.event.js', [], function (require, exports,
           $fuquan.data("show", true);
         }
         return false;
-      
+
       }, function (e) {
         var $fuquan = $(this).find(".fuquan");
 
@@ -2764,7 +2764,7 @@ define('pages/invest/chart/TSNB.chart.event.js', [], function (require, exports,
           });
         });
       });
-    }  
+    }
   };
 
   _.extend(SNB.stockChart.prototype, obj);
@@ -3368,7 +3368,7 @@ define('pages/invest/chart/TSNB.chart.kline.js', [], function (require, exports,
       timeEl.toFront();
     },
 
-    // 显示状态栏信息 
+    // 显示状态栏信息
     showKlineStateInfo: function (index) {
       if (!this.showCurrent || !this.showCurrent.ohlcma) {
         return false;
@@ -4035,7 +4035,7 @@ define('pages/invest/chart/TSNB.chart.networth.js', [], function (require, expor
 });
 ;
 define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports, module) {  function fixCoord(coord) {
-    return Math.floor(coord) + 0.5;   
+    return Math.floor(coord) + 0.5;
   }
 
   var obj = {
@@ -4052,7 +4052,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
         that = this;
 
       current = _.filter(current, function(a) {
-        return a > 0; 
+        return a > 0;
       });
 
       this.showCurrent = {
@@ -4089,13 +4089,13 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
         restPathArray = ["M"],
         todayEndTs = getTimespanBySpecialHMS(now, "23:59:59"),
         todayBeginTs = getTimespanBySpecialHMS(now, "00:00:00"),
-        startTs = getTimespanBySpecialHMS(firstTs, "00:00:00"), 
+        startTs = getTimespanBySpecialHMS(firstTs, "00:00:00"),
         dayWidth = chart.width / days,
         restDayWidth = dayWidth / 2,
         tradeDayWidth = restDayWidth,
         startX = that.labelWidth,
         dayCounts = current.length,
-        perWidth = tradeDayWidth / (dayCounts - 1),  
+        perWidth = tradeDayWidth / (dayCounts - 1),
         periodType = "day",
         overOneDay = false;
 
@@ -4105,7 +4105,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
         periodType = "month";
       } else if (_.indexOf(["1y", "3y", "all"], that.period) > -1) {
         periodType = "year";
-      }  
+      }
 
       that.showCurrent.x = [];
       that.showCurrent.y = [];
@@ -4121,16 +4121,16 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
         } else {
           todayBeginTs = getTimespanBySpecialHMS(now, "12:00:00");
           todayEndTs = getTimespanBySpecialHMS(now + dayTimespan, "11:59:59");
-        }  
-      }  
+        }
+      }
 
       if (periodType === "day") {
-        
+
         // 默认状况下是1填
         dayCounts = that.getStockDayLineCount(that.stockInfo.bigType, "1d"),
 
         // 每个trade点之间的距离
-        perWidth = tradeDayWidth / (dayCounts - 1);  
+        perWidth = tradeDayWidth / (dayCounts - 1);
 
         preTs = todayBeginTs;
         preTimeStr = SNB.chartUtil.formatTime(preTs, that.is$);
@@ -4153,7 +4153,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
             dayWidth = chart.width / days;
             restDayWidth = dayWidth / 2;
             tradeDayWidth = restDayWidth;
-            perWidth = tradeDayWidth / (dayCounts - 1);  
+            perWidth = tradeDayWidth / (dayCounts - 1);
 
             that.chart.perWidth = perWidth;
             that.startTs = preTs;
@@ -4180,7 +4180,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
               that.chart.perWidth = perWidth;
               that.startTs = preTs;
               that.endTs = todayEndTs;
-              
+
               drawChartWithStatus();
             });
           }
@@ -4190,12 +4190,12 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
       } else {
         days = Math.round((todayEndTs - firstTs) / dayTimespan);
         dayWidth = chart.width / days;
-        perWidth = dayWidth;  
+        perWidth = dayWidth;
 
         if (periodType === "year") {
           days = current.length;
           dayWidth = chart.width / days;
-          perWidth = dayWidth;  
+          perWidth = dayWidth;
         }
 
         that.startTs = firstTs;
@@ -4205,7 +4205,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
         preTs = firstTs;
         preTimeStr = SNB.chartUtil.formatTime(preTs, "yyyy-MM-dd", that.is$);
         drawChartWithStatus();
-      }  
+      }
 
       function drawChartWithStatus() {
         that.drawSplitLine(current, vol, 0.3);
@@ -4257,11 +4257,11 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
             // 当前时间点 距离上个有成交量的点之间的天数
             // days === 0 说明是当天
             var days = Math.ceil((ts - preTs) / dayTimespan) - 1;
-            
+
             // 大于1天的话  画整天的虚线
             // 相当于中间间隔了几天
             if (days) {
-            
+
               // 先移到位置 开始画虚线
               if (restPathArray.length > 1) {
                 restPathArray.push("M", fixCoord(startX), fixCoord(preY || y));
@@ -4278,7 +4278,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
                 }
 
                 startX += dayWidth;
-                
+
                 // 画虚线
                 if (restPathArray.length > 1) {
                   restPathArray.push("L", fixCoord(startX), fixCoord(preY || y));
@@ -4306,7 +4306,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
                   currentPathArray.push("L", fixCoord(startX), fixCoord(y));
                 }
               }
-            } 
+            }
 
             preTimeStr = timeStr;
 
@@ -4427,7 +4427,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
                 }
 
                 // 把这天画完
-                startX += (_.last(part) * restDayWidth); 
+                startX += (_.last(part) * restDayWidth);
                 restPathArray.push("L", fixCoord(startX), fixCoord(y));
               }
 
@@ -4441,7 +4441,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
                 currentPathArray.push("L", fixCoord(startX), fixCoord(y));
               }
             }
-          }  
+          }
 
           var yvol = vy - vol[i] * vscale;
 
@@ -4482,7 +4482,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
 
 
         var days = Math.ceil((todayEndTs - preTs) / dayTimespan) - 1;
-        
+
         // 大于1天的话  画整天的虚线
         if (days) {
           if (periodType === "month") {
@@ -4503,7 +4503,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
               restPathArray.push("L", fixCoord(startX), fixCoord(preY || y));
             }
           }
-        }  
+        }
 
         that.paper.path(currentPathArray).attr(that.theme.currentPath);
 
@@ -4513,7 +4513,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
         }
 
         that.drawStatusPoint();
-      }  
+      }
     },
     drawStatusPoint: function() {
       var that = this,
@@ -4545,7 +4545,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
           showCurrentY = that.showCurrent.y.slice(0, that.howmany);
 
         showCurrentTs.unshift(startTs);
-        showCurrentTs.push(endTs);  
+        showCurrentTs.push(endTs);
 
         showCurrentX.push(that.labelWidth + chart.width);
         showCurrentX.unshift(that.labelWidth);
@@ -4562,7 +4562,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
           // 遍历每个讨论点得ts  用showCurrent的ts 加上 startTs 和 endTs  用2分查找到index 从而确定x的区间
           // 再根据区间来跟 perWidth比较 看时rest 还是trade time 通过x, y 来确定讨论点得 x, y
           // 讨论点得事件 就通过 移动触发来完成
-          
+
           var sts = s.created_at,
             i = SNB.chartUtil.getIndexByTs(showCurrentTs, sts),
             t1 = showCurrentTs[i],
@@ -4621,8 +4621,8 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
               "stroke": "none",
               "stroke-width": "0px",
               "fill": color
-            });  
-          
+            });
+
           }
 
           circle.data("id", s.id);
@@ -4652,7 +4652,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
           + '<div class="tt-arrow above">'
             + '<div class="tt-arrow-in"></div>'
             + '<div class="tt-arrow-out"></div>'
-          + '</div>'  
+          + '</div>'
           + '<div class="tt-alpha"></div>'
           + '<div class="popStatus">'
             + '<img src="{{=it.img}}" class="popHeadPic"/>'
@@ -4668,18 +4668,18 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
                 + '<span class="popStatusTimeContainer">'
                   + '<span class="popStatusTime">{{=it.createdAt}}</span>'
                   + '<a class="popStatusClose"></a>'
-                + '</span>'  
+                + '</span>'
               + '</div>'
-            + '{{if (it.title){ }}'  
+            + '{{if (it.title){ }}'
               + '<div class="popStatusTitle">'
                 + '<h4><a href="{{=it.target}}" target="_blank" title="{{=it.fullTitle}}">{{=it.title}}</a></h4>'
               + '</div>'
-            + '{{ } }}'  
+            + '{{ } }}'
             + '<div class="popStatusContent">'
               + '{{=it.description}}'
               + '{{if (it.target){ }}'
                 + '<a href="{{=it.target}}" target="_blank" class="popStatusReply">评论({{=it.reply_count}})</a>'
-              + '{{ } }}'  
+              + '{{ } }}'
             + '</div>'
             + '{{ if (it.retweeted_status){ }}'
               + '<div class="popRetweetedStatus">'
@@ -4688,11 +4688,11 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
                 + '<img width="16px"  class="vipicon" height="16px" title="{{=it.retweeted_status.user.verified_description}}" src="'+SNB.domain['static']+'/images/vipicon_{{=it.retweeted_status.user.verified_type||1}}.png"/>'
               + '{{ } }}'
               + '：</a>'
-              + '{{if (it.retweeted_status.title){ }}'  
+              + '{{if (it.retweeted_status.title){ }}'
                 + '<div class="popStatusTitle">'
                   + '<h4><a href="{{=it.retweeted_status.target}}" target="_blank" title="{{=it.retweeted_status.fullTitle}}">{{=it.retweeted_status.title}}</a></h4>'
                 + '</div>'
-              + '{{ } }}'  
+              + '{{ } }}'
                 + '<div class="popStatusContent">{{=it.retweeted_status.description}}<a href="{{=it.retweeted_status.target}}" target="_blank" class="popStatusReply">评论({{=it.retweeted_status.reply_count}})</a></div>'
               + '</div>'
             + '{{ } }}'
@@ -4701,8 +4701,8 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
           + '<div class="tt-arrow below">'
             + '<div class="tt-arrow-in"></div>'
             + '<div class="tt-arrow-out"></div>'
-          + '</div>'  
-        +'</div>';  
+          + '</div>'
+        +'</div>';
 
       var func = doT.template(popStatus);
 
@@ -4758,8 +4758,8 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
         //that.loadingPopStatus.remove();
 
         var $pop = $(func(status)).addClass("status_show");
-        
-        // 把对话框内的a标签加_blank属性 
+
+        // 把对话框内的a标签加_blank属性
         $pop.find("a").each(function() {
           $(this).attr("target", "_blank");
         });
@@ -4912,14 +4912,14 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
               + '<s></s>'
               + '<i></i>'
             + '</div>'
-          + '</div>';  
+          + '</div>';
 
         var $statusContainer = $(html);
         $statusContainer.css({
           top: y + 30,
-          left: x - 150 
+          left: x - 150
         });
-        that.wrapper.append($statusContainer);  
+        that.wrapper.append($statusContainer);
       }
 
       // 接口里面吐出前几条完整的讨论  没吐的话 从讨论接口去取
@@ -4949,7 +4949,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
         "L",
         fixCoord(x),
         fixCoord(chart.cy)
-      ]).attr(this.theme.dashedSplitLine);  
+      ]).attr(this.theme.dashedSplitLine);
 
       var currentX = that.showCurrent.x.slice(0, that.howmany + 1);
       currentX.unshift(this.labelWidth);
@@ -4995,7 +4995,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
           }
         });
 
-        var circle; 
+        var circle;
 
         if (circles.length) {
           _.each(circles, function (c) {
@@ -5007,7 +5007,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
 
               if (x1 <= x2) {
                 circle = c;
-              }  
+              }
             } else {
               circle = c;
             }
@@ -5026,7 +5026,7 @@ define('pages/invest/chart/TSNB.chart.status.js', [], function (require, exports
     }
   };
 
-  _.extend(SNB.stockChart.prototype, obj);  
+  _.extend(SNB.stockChart.prototype, obj);
 });
 ;
 define('pages/invest/chart/TSNB.chart.stock.js', [], function (require, exports, module) {  function fixCoord(coord) {
@@ -5090,7 +5090,7 @@ define('pages/invest/chart/TSNB.chart.stock.js', [], function (require, exports,
 
       /*
        *current = _.filter(current, function(a) {
-       *  return a > 0; 
+       *  return a > 0;
        *});
        */
 
@@ -5111,7 +5111,7 @@ define('pages/invest/chart/TSNB.chart.stock.js', [], function (require, exports,
 
       var currentArray = current.slice();
 
-      // 把lastClose 放入数组 
+      // 把lastClose 放入数组
       if (this.period === "1d") {
         currentArray.push(this.lastClose);
       }

@@ -70,7 +70,6 @@ body{
 </head>
 <body id="jade-singleStock" class="left right oppositeColor isPC isNotMobile isNotPad">
 <script>SNB = window.SNB || {};
-console.log(SNB);
 jQuery.extend(SNB, {
   data: {},
   env: "production",
@@ -97,7 +96,7 @@ SNB.data.access_token =  $.cookie("xq_a_token") || "674ae0d35c3d2077dac88240f2c3
   }
 })();
 </script>
-<script src="./js/05.jquery.cookie.js"></script>
+<script src="https://assets.imedao.com/js/05.jquery.cookie.js"></script>
 <script>function delCookie(name){//为了删除指定名称的cookie，可以将其过期时间设定为一个过去的时间
   var date = new Date();
   date.setTime(date.getTime() - 10000);
@@ -126,7 +125,7 @@ jQuery(function($){
     }
   });
 });</script>
-<script src="./js/SNB.helpers.js"></script>
+<script src="https://assets.imedao.com/js/SNB.helpers-d5327e.js"></script>
 <script>SNB.profileUser = SNB.currentUser</script>
 <noscript>
 <style>
@@ -165,9 +164,8 @@ html {
 <!--!=css('im.css')-->
 <script>seajs.config({
   timeout: 60000,
-  preload: [SNB.jsVersion && _.keys(SNB.jsVersion).length && 0 ? 'SNB.base-' + SNB.jsVersion['SNB.base.js'] + '.js' : 'SNB.base.js']
+  preload: [SNB.jsVersion && _.keys(SNB.jsVersion).length ? 'SNB.base-' + SNB.jsVersion['SNB.base.js'] + '.js' : 'SNB.base.js']
 })
-//修改引入SNB.base.js而非带版本号的SNB.base.版本号.js gua
 </script>
 <script>seajs.use("SNB.guest.js")
 </script>
@@ -185,15 +183,14 @@ html {
         return result;
       }]);
     });
-    //禁用映射gua
     seajs.config({
-      //map: map
+      map: map
     });
   }
 }())
 </script>
 <!-- test config-->
-<script src="./js/bootstrap.js"></script>
+<script src="https://assets.imedao.com/js/bootstrap-6bd6fa.js"></script>
 <div id="center" class="container">
 	<div class="left-sidebar">
 		<div class="wrapper">
@@ -438,8 +435,8 @@ html {
 					</div>
 				</div>
 			</div>
-			<script src="./js/jquery.mousewheel.js"></script>
-			<script src="./js/raphael.js"></script>
+			<script src="https://assets.imedao.com/js/jquery.mousewheel-41ebd2.js"></script>
+			<script src="https://assets.imedao.com/js/raphael-ea1c64.js"></script>
 			<script id="payAmountTemplate" type="x-template"><div id="payAmountModal" class="reward-modal dimmer center middle hidden">
   <div class="reward-container">
     <div class="reward-modal-hd">现金打赏
@@ -597,7 +594,7 @@ seajs.use(["SNB.dialog.js", "SNB.status.js", "SNB.singleStock.js", 'reward/rewar
 						<a href="#" data-track-event="TopRight" target="_blank">topRight</a>
 					</div>
 				</div>
-				<!-- <script>(function ($) {
+				<script>(function ($) {
   $.fn.isOnScreen = function(){
     var element = this.get(0);
     var bounds = element.getBoundingClientRect();
@@ -610,7 +607,7 @@ seajs.use(["SNB.dialog.js", "SNB.status.js", "SNB.singleStock.js", 'reward/rewar
     pos_id: "right_top"
   }
   var $homeTopRight = $('#home-top-right');
-  $.get(SNB.domain.host + '/promotion/display.json', topParams).done(function (data) {
+  $.get('/promotion/display.json', topParams).done(function (data) {
     if (data.ads && data.ads.length > 0) {
       $homeTopRight.find('a')
               .attr('href', data.ads[0].link || "javascript:void(0);")
@@ -655,7 +652,7 @@ seajs.use(["SNB.dialog.js", "SNB.status.js", "SNB.singleStock.js", 'reward/rewar
       });
     }
   });
-})(jQuery);</script> -->
+})(jQuery);</script>
 				<style>
 #home-top-right {
   width: 100%;
@@ -774,7 +771,7 @@ seajs.use(["SNB.dialog.js", "SNB.status.js", "SNB.singleStock.js", 'reward/rewar
 					</div>
 				</div>
 				<script>seajs.use("SNB.base.js", function(){
-  SNB.get(SNB.domain.host + "/calendar/cal/events.json", { symbol: stockData.stockInfo.symbol, end_date: "INF", page: 1, count: 3 }, function(ret){
+  SNB.get("/calendar/cal/events.json", { symbol: stockData.stockInfo.symbol, end_date: "INF", page: 1, count: 3 }, function(ret){
     var html = "",
         events = [];
     for ( var key in ret ) {
@@ -890,7 +887,7 @@ seajs.use(["SNB.dialog.js", "SNB.status.js", "SNB.singleStock.js", 'reward/rewar
 				</div>
 				<script>(function(){
   var symbol=stockData.stockInfo.symbol,
-      url=SNB.domain.host + "/interview/search.json?count=3&symbol="+symbol;
+      url="/interview/search.json?count=3&symbol="+symbol;
   seajs.use("SNB.base.js",function(){
     SNB.get(url,function(ret){
       var html="";
@@ -932,7 +929,7 @@ seajs.use(["SNB.dialog.js", "SNB.status.js", "SNB.singleStock.js", 'reward/rewar
 				</div>
 				<script>(function(){
   var symbol=stockData.stockInfo.symbol,
-      url=SNB.domain.host + '/stockreport/list.json?symbol='+symbol+'&page=1&size=3';
+      url='/stockreport/list.json?symbol='+symbol+'&page=1&size=3';
   seajs.use("SNB.base.js",function(){
     SNB.get(url,function(ret){
       var html="";
@@ -1014,7 +1011,7 @@ seajs.use(["SNB.dialog.js", "SNB.status.js", "SNB.singleStock.js", 'reward/rewar
         }),
         url=urls.join("#47bce5c74f#");
     if(urls.length>1){
-      SNB.post(SNB.domain.host + "/apimerge/result.json",{api:url},function(ret){
+      SNB.post("/apimerge/result.json",{api:url},function(ret){
         var users=[];
         for(var key in ret){
           users.push(ret[key].result);
@@ -1022,7 +1019,7 @@ seajs.use(["SNB.dialog.js", "SNB.status.js", "SNB.singleStock.js", 'reward/rewar
         renderUsers(users);
       })
     }else{
-      SNB.get(SNB.domain.host + "/user/show.json",{id:_.first(ids)},function(user){
+      SNB.get("/user/show.json",{id:_.first(ids)},function(user){
         var users=[user];
         renderUsers(users);
       })
@@ -1079,7 +1076,7 @@ seajs.use(["SNB.dialog.js", "SNB.status.js", "SNB.singleStock.js", 'reward/rewar
 					</div>
 				</div>
 				<script>seajs.use('SNB.stockActiveUser.js', function(){
-  SNB.get(SNB.domain.host + "/recommend/user/stock_hot_user.json",{symbol:stockData.stockInfo.stockid,start:0,count:6},function(ret){
+  SNB.get("/recommend/user/stock_hot_user.json",{symbol:stockData.stockInfo.stockid,start:0,count:6},function(ret){
     if(ret&&ret.length){
       var collection=new SNB.Collections.stockActiveUser(ret),
           views=new SNB.Views.stockActiveUsers({el:$(".stock-activeUser"),collection:collection});
@@ -1320,7 +1317,7 @@ seajs.use(["SNB.dialog.js", "SNB.status.js", "SNB.singleStock.js", 'reward/rewar
         renderUsers(users);
       })
     }else{
-      SNB.get(SNB.domain.host + "/user/show.json",{id:_.first(ids)},function(user){
+      SNB.get("/user/show.json",{id:_.first(ids)},function(user){
         var users=[user];
         renderUsers(users);
       })
@@ -1432,7 +1429,7 @@ seajs.use("SNB.renderTableTrHtml.js", function (exports) {
     return html;
   }
   $(function(){
-    var url = SNB.domain.host + "/stock/industry/stockList.json",
+    var url = "/stock/industry/stockList.json",
       symbol = stockData.stockInfo.stockid,
       params = {
         type: 1,
@@ -1453,13 +1450,13 @@ seajs.use("SNB.renderTableTrHtml.js", function (exports) {
         order: "desc",
         orderby: "SALEBEGINDATE",
       }
-      url = SNB.domain.host + "/financial_product/query.json";
+      url = "/financial_product/query.json";
     }
     if ( isPF ) {
       params = {
         count: 10
       }
-      url = SNB.domain.host + "/private_fund/industry/list.json";
+      url = "/private_fund/industry/list.json";
     }
     SNB.get(url, params, function(ret){
       var quotes = ret.industrystocks || ret.data;
@@ -1516,7 +1513,7 @@ seajs.use("SNB.renderTableTrHtml.js", function (exports) {
         }
       }
     });
-    SNB.get(SNB.domain.host + "/stock/portfolio/popstocks.json",{code:stockData.stockInfo.stockid,start:0,count:8},function(ret){
+    SNB.get("/stock/portfolio/popstocks.json",{code:stockData.stockInfo.stockid,start:0,count:8},function(ret){
       var quotes=ret;
       if(quotes&&quotes.length){
         $("#alsoFollow").find("tbody").html(generateTable(quotes)).end().show().find("table").data("stocks",quotes);
@@ -1540,7 +1537,7 @@ seajs.use("SNB.renderTableTrHtml.js", function (exports) {
     pos_id: "right_bottom"
   }
   var $homeBottomRight = $('#home-bottom-right');
-  $.get(SNB.domain.host + '/promotion/display.json', bottomParams).done(function (data) {
+  $.get('/promotion/display.json', bottomParams).done(function (data) {
     if (data.ads && data.ads.length > 0) {
       $homeBottomRight.find('a')
               .attr('href', data.ads[0].link || "javascript:void(0);")
